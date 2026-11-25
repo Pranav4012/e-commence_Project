@@ -1,0 +1,29 @@
+{
+  "name": "delivery-intelligence",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n WEB,API -c cyan,green \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:web": "vite --host 0.0.0.0",
+    "dev:api": "python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.2.0",
+    "vite": "^6.4.1",
+    "typescript": "~5.7.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.510.0",
+    "recharts": "^2.15.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
+  }
+}
